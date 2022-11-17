@@ -43,22 +43,22 @@
     {
         "type": "event",
         "anonymous": false,
+        "name": "ItemCanceled",
+        "inputs": [
+            { "type": "address", "name": "seller", "indexed": true },
+            { "type": "address", "name": "nftAddress", "indexed": true },
+            { "type": "uint256", "name": "tokenId", "indexed": true }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
         "name": "ItemListed",
         "inputs": [
             { "type": "address", "name": "seller", "indexed": true },
             { "type": "address", "name": "nftAddress", "indexed": true },
             { "type": "uint256", "name": "tokenId", "indexed": true },
             { "type": "uint256", "name": "price", "indexed": false }
-        ]
-    },
-    {
-        "type": "event",
-        "anonymous": false,
-        "name": "NftMarketplace__ItemCanceled",
-        "inputs": [
-            { "type": "address", "name": "seller", "indexed": true },
-            { "type": "address", "name": "nftAddress", "indexed": true },
-            { "type": "uint256", "name": "tokenId", "indexed": true }
         ]
     },
     {

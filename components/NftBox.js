@@ -51,7 +51,7 @@ export default function NFTBox({ price, nftAddress, tokenId, marketplaceAddress,
 
     async function updateUI() {
         const tokenURI = await getTokenURI()
-        console.log(`The TokenURI is ${tokenURI}`)
+        console.log(`The tokenURI is ${tokenURI}`)
         // We are going to cheat a little here...
         if (tokenURI) {
             // IPFS Gateway: A server that will return IPFS files from a "normal" URL.
@@ -85,12 +85,11 @@ export default function NFTBox({ price, nftAddress, tokenId, marketplaceAddress,
             ? setShowModal(true)
             : buyItem({
                   onError: (error) => console.log(error),
-                  onSuccess: handleBuyItemSuccess,
+                  onSuccess: () => handleBuyItemSuccess(),
               })
     }
 
-    const handleBuyItemSuccess = async (tx) => {
-        await tx.wait(1)
+    const handleBuyItemSuccess = () => {
         dispatch({
             type: "success",
             message: "Item bought!",
@@ -127,6 +126,8 @@ export default function NFTBox({ price, nftAddress, tokenId, marketplaceAddress,
                                         src={imageURI}
                                         height="200"
                                         width="200"
+                                        alt="doggo"
+                                        unoptimized
                                     />
                                     <div className="font-bold">
                                         {ethers.utils.formatUnits(price, "ether")} ETH
